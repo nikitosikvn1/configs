@@ -80,10 +80,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-# export PATH="$PATH:/home/nikitap/.local/bin"
-export PATH="$PATH:/var/lib/flatpak/exports/bin"
-export PATH="$PATH:/opt/go/bin"
-export PATH="$PATH:/opt/node/bin"
+# export PATH="$PATH:/var/lib/flatpak/exports/bin"
+# export PATH="$PATH:/opt/go/bin"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -144,9 +142,9 @@ set_custom_prompt
 
 # Display system info at shell startup
 function system_info() {
-    bold="\e[1m"
-    green="\e[0;32m"
-    reset="\e[0m"
+    local bold="\e[1m"
+    local green="\e[0;32m"
+    local reset="\e[0m"
 
     echo -e "${bold}OS: ${green}$(uname -ro)${reset}"
     echo -e "${bold}Uptime: ${green}$(uptime -p | sed 's/^up //')${reset}"
