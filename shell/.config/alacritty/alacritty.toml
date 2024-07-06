@@ -31,8 +31,9 @@ cyan    = "#8ec07c"
 white   = "#ebdbb2"
 
 [window]
-decorations = "None"
-startup_mode = "Maximized"
+dimensions = { columns = 110, lines = 35 }
+decorations = "Full"
+startup_mode = "Windowed"
 
 [font]
 normal = { family = "FiraCode Nerd Font", style = "Regular" }
