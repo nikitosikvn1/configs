@@ -82,6 +82,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 # export PATH="$PATH:/var/lib/flatpak/exports/bin"
 # export PATH="$PATH:/opt/go/bin"
+export PATH="$PATH:/home/$USER/.local/bin"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -120,7 +121,7 @@ if command -v bat > /dev/null; then
     alias -g -- --help="--help 2>&1 | bat --language=help --style=plain"
     alias cat="bat --style=plain --paging=never"
 
-    function batdiff() {
+    batdiff() {
         git diff --name-only --relative --diff-filter=d | xargs bat --diff
     }
 fi
