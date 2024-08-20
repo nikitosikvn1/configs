@@ -176,7 +176,7 @@ function system_info() {
 }
 
 if command -v fastfetch > /dev/null; then
-    fastfetch
+    [ "$TERM_PROGRAM" != "zed" ] && fastfetch
 else
     system_info
 fi
