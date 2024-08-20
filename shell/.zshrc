@@ -126,6 +126,29 @@ if command -v bat > /dev/null; then
     }
 fi
 
+if command -v fzf > /dev/null; then
+    source <(fzf --zsh)
+    
+    if command -v fd > /dev/null; then
+        # Setting fd (https://github.com/sharkdp/fd) as the default source for fzf
+        export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --follow --exclude .git"
+        export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+        export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --follow --exclude .git"
+
+        # Use fd for listing path candidates.
+        # - The first argument to the function ($1) is the base path to start traversal
+        # - See the source code (completion.{bash,zsh}) for the details.
+        _fzf_compgen_path() {
+            fd --hidden --follow --exclude .git . "$1"
+        }
+
+        # Use fd to generate the list for directory completion
+        _fzf_compgen_dir() {
+            fd --type=d --hidden --follow --exclude .git . "$1"
+        }
+    fi
+fi
+
 # Custom prompt
 function set_custom_prompt() {
     PROMPT='%F{240}[%D{%L:%M}]%f %F{109}%m%F{240}:%f'
