@@ -128,7 +128,7 @@ fi
 
 if command -v fzf > /dev/null; then
     source <(fzf --zsh)
-    
+
     if command -v fd > /dev/null; then
         # Setting fd (https://github.com/sharkdp/fd) as the default source for fzf
         export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --follow --exclude .git"

@@ -1,0 +1,12 @@
+[user]
+	name = Nikita Petrykin
+	email = nvnedu2120@gmail.com
+[alias]
+	c = commit
+	s = status
+	st = status
+	lg = log --oneline
+	last = log -1 HEAD
+	cl = log -p -- ':(exclude)Cargo.lock'
+[init]
+	defaultBranch = main
